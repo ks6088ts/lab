@@ -1,0 +1,13 @@
+# https://github.com/grafana/grafana/blob/master/devenv/datasources.yaml  
+apiVersion: 1
+
+datasources:
+  - name: postgres
+    type: postgres
+    url: postgres:5432
+    database: db
+    user: user
+    secureJsonData:
+      password: password
+    jsonData:
+      sslmode: "disable"
