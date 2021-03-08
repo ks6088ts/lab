@@ -1,0 +1,16 @@
+# https://github.com/grafana/grafana/blob/master/devenv/datasources.yaml  
+apiVersion: 1
+
+datasources:
+  - name: influxdb2
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    user: user
+    secureJsonData:
+      token: token
+      password: password
+    jsonData:
+      version: Flux
+      organization: org
+      defaultBucket: bucket
