@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0.8
+    container_name: mosquitto
+    ports:
+      - ${MOSQUITTO_MQTT_PORT}:1883
+      - ${MOSQUITTO_WEBSOCKET_PORT}:9001
+    volumes:
+      - ./docker/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - shared-network
+networks:
+  shared-network:
+    external: true
