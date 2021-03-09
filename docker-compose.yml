@@ -69,6 +69,16 @@ services:
       - discovery.type=single-node
     networks:
       - shared-network
+  fluentd:
+    image: fluent/fluentd:v1.3-1
+    container_name: fluentd
+    ports:
+      - ${FLUENTD_PORT}:24224
+      - ${FLUENTD_PORT}:24224/udp
+    volumes:
+      - ./docker/fluentd/fluent.conf:/fluentd/etc/fluent.conf
+    networks:
+      - shared-network
 networks:
   shared-network:
     external: true
