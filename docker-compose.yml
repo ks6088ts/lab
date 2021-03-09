@@ -60,6 +60,15 @@ services:
       - ./docker/prometheus:/etc/prometheus
     networks:
       - shared-network
+  elasticsearch:
+    image: elasticsearch:7.10.1
+    container_name: elasticsearch
+    ports:
+      - ${ELASTICSEARCH_PORT}:9200
+    environment:
+      - discovery.type=single-node
+    networks:
+      - shared-network
 networks:
   shared-network:
     external: true
