@@ -79,6 +79,13 @@ services:
       - ./docker/fluentd/fluent.conf:/fluentd/etc/fluent.conf
     networks:
       - shared-network
+  nginx:
+    image: nginx:1.19.7-alpine
+    container_name: nginx
+    ports:
+      - ${NGINX_PORT}:80
+    networks:
+      - shared-network
 networks:
   shared-network:
     external: true
