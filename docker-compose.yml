@@ -70,7 +70,9 @@ services:
     networks:
       - shared-network
   fluentd:
-    image: fluent/fluentd:v1.3-1
+    build:
+      context: .
+      dockerfile: ./docker/fluentd/Dockerfile
     container_name: fluentd
     ports:
       - ${FLUENTD_PORT}:24224
