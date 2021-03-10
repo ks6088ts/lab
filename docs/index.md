@@ -22,3 +22,18 @@
 # elasticsearch
 
 - [REST APIs](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html)
+
+# services
+
+## Visualize Nginx logs from Grafana
+
+```bash
+make clean
+make init
+docker-compose down
+docker-compose up -d nginx
+docker-compose up grafana elasticsearch fluentd
+
+# access nginx(http://localhost:8080) to generate access logs on outputs/nginx/access.log
+# access grafana(http://localhost:3000) to visualize access logs
+```
